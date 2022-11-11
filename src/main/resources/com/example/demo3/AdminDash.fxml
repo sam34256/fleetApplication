@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minWidth="-Infinity" prefHeight="600.0" prefWidth="1700.0" stylesheets="@AdminMenu.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.AdminDashController">
+   <BorderPane fx:id="mainPane" layoutY="-10.0" prefHeight="613.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0">
+      <left>
+         <VBox prefHeight="613.0" prefWidth="200.0" style="-fx-background-color: #d9bb79;" styleClass="menu_container" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+               <Insets right="10.0" />
+            </BorderPane.margin>
+            <HBox alignment="CENTER" fillHeight="false" minWidth="-Infinity" prefHeight="207.0" prefWidth="199.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="create_c_btn" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="50.0" prefWidth="80.0" styleClass="alt_menu_btn" text="New driver/vehicle">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="45.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="vechiles_btn" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="50.0" prefWidth="80.0" styleClass="alt_menu_btn" text="Vehicles">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="45.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="drivers_btn" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="50.0" prefWidth="80.0" styleClass="alt_menu_btn" text="Drivers">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="45.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="logout_btn" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="50.0" prefWidth="80.0" styleClass="alt_menu_btn" text="Logout">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="45.0" />
+               </VBox.margin>
+            </Button>
+         </VBox>
+      </left>
+      <center>
+         <Pane prefHeight="614.0" prefWidth="1125.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="pnClientsListview" layoutY="-4.0" prefHeight="614.0" prefWidth="1116.0" style="-fx-background-color: white;">
+               <HBox layoutX="-6.0" layoutY="9.0" prefHeight="124.0" prefWidth="1125.0" style="-fx-background-color: #d9bb79;">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Vehicles" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </HBox>
+               <TableView fx:id="vechile_table" layoutX="13.0" layoutY="180.0" prefHeight="409.0" prefWidth="1081.0">
+                  <columns>
+                     <TableColumn fx:id="col_accnum" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Vehicle number" />
+                     <TableColumn fx:id="col_fname" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Model" />
+                     <TableColumn fx:id="col_lname" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Vehicle Year" />
+                     <TableColumn fx:id="col_mname" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Oil Due Date" />
+                     <TableColumn fx:id="col_dob" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Reg Due Date" />
+                     <TableColumn fx:id="col_address" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Annual Check up" />
+                     <TableColumn fx:id="col_zip" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Mile Age" />
+                     <TableColumn fx:id="col_state" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Type" />
+                     <TableColumn fx:id="col_country" prefWidth="75.0" style="-fx-background-color: #d9bb79;" text="Status" />
+                  </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+               </TableView>
+               <HBox alignment="CENTER" layoutX="14.0" layoutY="131.0" prefHeight="49.0" prefWidth="476.0">
+                  <TextField fx:id="search_db_fld" alignment="CENTER" prefHeight="26.0" prefWidth="299.0" promptText="Enter Vehicle" />
+                  <Button fx:id="Search_Client_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #d9bb79;" text="Search Vehicle" textFill="WHITE" />
+               </HBox>
+               <Button fx:id="Update_btn" layoutX="519.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Update" textFill="WHITE" />
+               <Button fx:id="Delete_btn" layoutX="634.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Delete" textFill="WHITE" />
+               <Button fx:id="refresh" layoutX="749.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Refresh" textFill="WHITE" onAction="#refresh"/>
+            </Pane>
+            <AnchorPane fx:id="pnDeposits" layoutX="59.0" layoutY="9.0" prefHeight="613.0" prefWidth="1052.0">
+               <VBox fillWidth="false" layoutX="-65.0" layoutY="1.0" prefHeight="604.0" prefWidth="1124.0">
+                  <HBox alignment="CENTER" prefHeight="84.0" prefWidth="1179.0" style="-fx-background-color: #d9bb79;" styleClass="search_box">
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Driver Id: " />
+                     <TextField fx:id="raddress_fld" styleClass="search_box" />
+                     <Button fx:id="search_btn" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #d9bb79; -fx-border-color: white;" text="Search" />
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1124.0" style="-fx-background-color: white;">
+                     <Label alignment="CENTER" contentDisplay="CENTER" text="Drivers">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                        <opaqueInsets>
+                           <Insets />
+                        </opaqueInsets>
+                     </Label>
+                  </HBox>
+                  <HBox prefHeight="202.0" prefWidth="1124.0">
+                     <TableView fx:id="Drivers_table" prefHeight="200.0" prefWidth="1124.0">
+                        <columns>
+                           <TableColumn fx:id="col_Driver_id" prefWidth="122.39997863769531" text="Driver Id" />
+                           <TableColumn fx:id="col_FirstName" prefWidth="123.20004272460938" text="First Name" />
+                           <TableColumn fx:id="col_LastName" minWidth="0.0" prefWidth="88.80001831054688" text="Last Name" />
+                           <TableColumn fx:id="col_driverEmail" minWidth="0.0" prefWidth="96.79998779296875" text="email" />
+                           <TableColumn fx:id="col_Gender" prefWidth="171.20001220703125" text="Gender" />
+                           <TableColumn fx:id="col_phoneNumber" prefWidth="107.20001220703125" text="phoneNumber " />
+                           <TableColumn fx:id="col_LicenseNumber" minWidth="0.0" prefWidth="118.4000244140625" text="License number " />
+                        </columns>
+                        <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                     </TableView>
+                  </HBox>
+                  <SplitPane dividerPositions="0.5" prefHeight="288.0" prefWidth="1124.0">
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                        <Label layoutX="14.0" layoutY="14.0" text="Available Drivers" />
+                        <TableView fx:id="Available_drivers" layoutX="28.0" layoutY="43.0" prefHeight="174.0" prefWidth="499.0">
+                           <columns>
+                              <TableColumn fx:id="driverId" prefWidth="178.3999900817871" text="Driver Id" />
+                              <TableColumn fx:id="col_avFirstName" prefWidth="126.40000915527344" text="First Name" />
+                              <TableColumn fx:id="col_vechileId" prefWidth="192.80003662109374" text="Vehicle id" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="36.0" layoutY="226.0" text="Available Drivers" />
+                        <TextField fx:id="ck_assignField" layoutX="36.0" layoutY="244.0" />
+                        <Button fx:id="ck_assign_driver_btn" layoutX="196.0" layoutY="244.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #d9bb79;" text="Assign Task" />
+                     </AnchorPane>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                        <Label layoutX="14.0" layoutY="14.0" text="Active Drivers" />
+                        <TableView fx:id="unavailableDrivers" layoutX="29.0" layoutY="40.0" prefHeight="174.0" prefWidth="499.0">
+                           <columns>
+                              <TableColumn fx:id="col_un_driverId" prefWidth="179.99999618530273" text="Driver Id" />
+                              <TableColumn fx:id="col_ud_firstName" prefWidth="138.40003967285156" text="First Name" />
+                              <TableColumn fx:id="col_ud_vehicleId" prefWidth="179.99993896484375" text="Vehicle id " />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="43.0" layoutY="222.0" text="Driver Id" />
+                        <TextField fx:id="sv_amount_deposit_fld" layoutX="43.0" layoutY="240.0" />
+                        <Button fx:id="sv_amount_deposit_btn" layoutX="205.0" layoutY="240.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #d9bb79;" text="Unassign Task" />
+                     </AnchorPane>
+                  </SplitPane>
+               </VBox>
+            </AnchorPane>
+            <SplitPane fx:id="pnCreateClient" dividerPositions="0.5" layoutX="-5.0" layoutY="8.0" orientation="VERTICAL" prefHeight="604.0" prefWidth="1124.0" style="-fx-background-color: white;">
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="1132.0" style="-fx-background-color: white;">
+                  <Label layoutX="70.0" layoutY="51.0" text="First Name">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="FName_fld" layoutX="69.0" layoutY="72.0" />
+                  <Label layoutX="69.0" layoutY="126.0" text="Date of Birth">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="385.0" layoutY="51.0" text="License Number">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="licenseNumber" layoutX="385.0" layoutY="72.0" />
+                  <TextField fx:id="socialSecurity" layoutX="385.0" layoutY="156.0" />
+                  <TextField fx:id="LName_fld" layoutX="752.0" layoutY="72.0" />
+                  <TextField fx:id="Phone_no_fld" layoutX="752.0" layoutY="146.0" />
+                  <Label layoutX="385.0" layoutY="126.0" text="Social Security Number">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="752.0" layoutY="51.0" text="Last Name">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="752.0" layoutY="126.0" text="Phone Number">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DOB_fld" layoutX="70.0" layoutY="156.0" prefHeight="26.0" prefWidth="154.0" />
+                  <Label fx:id="maritalSetLabel" layoutX="70.0" layoutY="208.0" text="Status">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="active_radio_btn" layoutX="64.0" layoutY="234.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" text="Active">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="maritalStatus" />
+                     </toggleGroup>
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="inactive_radio_btn" layoutX="148.0" layoutY="239.0" mnemonicParsing="false" text="Inactive" toggleGroup="$maritalStatus">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <Label fx:id="genderLabel" layoutX="394.0" layoutY="208.0" text="Gender">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="Male_radio_btn" layoutX="385.0" layoutY="234.0" mnemonicParsing="false" text="Male" toggleGroup="$genderStatus">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="genderStatus" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="Female_radio_btn" layoutX="450.0" layoutY="227.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="86.0" text="Female" toggleGroup="$genderStatus">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <Label fx:id="verifyAgeLabel" layoutX="70.0" layoutY="112.0" prefHeight="23.0" prefWidth="186.0" />
+                  <Label fx:id="verifySSNLabel" layoutX="385.0" layoutY="114.0" prefHeight="23.0" prefWidth="186.0" />
+                  <Label fx:id="verifyPhoneLabel" layoutX="759.0" layoutY="102.0" prefHeight="23.0" prefWidth="186.0" />
+                  <TextField id="password" fx:id="password_fld" layoutX="759.0" layoutY="221.0" />
+                  <Label layoutX="759.0" layoutY="182.0" text="Password">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="945.0" layoutY="183.0" text="Username">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="username_fld" layoutX="938.0" layoutY="217.0" />
+                  <Button fx:id="Create_new_btn" layoutX="944.0" layoutY="256.0" mnemonicParsing="false" onAction="#newDriver" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: #d9bb79; -fx-background-radius: 10; -fx-font-size: 16;" text="New Driver" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="email_fld" layoutX="938.0" layoutY="146.0" />
+                  <Label layoutX="938.0" layoutY="126.0" text="Email">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+               </AnchorPane>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="297.0" prefWidth="1084.0" style="-fx-background-color: white;">
+                  <Label layoutX="68.0" layoutY="102.0" text="State">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="535.0" layoutY="103.0" text="Status">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="model_fld" layoutX="65.0" layoutY="46.0" />
+                  <Label layoutX="68.0" layoutY="14.0" text="Model">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="mileAge_fld" layoutX="295.0" layoutY="46.0" />
+                  <Label layoutX="295.0" layoutY="14.0" text="Mile Age">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="type_fld" layoutX="531.0" layoutY="127.0" />
+                  <Label layoutX="301.0" layoutY="164.0" text="Type">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="ck_acc_cb" layoutX="295.0" layoutY="194.0" mnemonicParsing="false" text="Commercial">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </CheckBox>
+
+                  <CheckBox fx:id="sv_acc_cb" layoutX="531.0" layoutY="194.0" mnemonicParsing="false" text="Non Comercial">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="oil_due" layoutX="296.0" layoutY="246.0" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField fx:id="anual_check" layoutX="536.0" layoutY="246.0" prefHeight="26.0" prefWidth="184.0" />
+                  <Label layoutX="297.0" layoutY="227.0" text="Oil Due date:">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="535.0" layoutY="227.0" text="Annual Check up date ">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="state_ComboBox" layoutX="65.0" layoutY="126.0" prefWidth="150.0" promptText="Select State" />
+                  <TextField fx:id="Vechile_Year" layoutX="516.0" layoutY="46.0" />
+                  <Label layoutX="517.0" layoutY="14.0" text="Vechile Year">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="Create_new_vech" layoutX="964.0" layoutY="246.0" mnemonicParsing="false" onAction="#createVehicle" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: #d9bb79; -fx-background-radius: 10; -fx-font-size: 16;" text="New Vehicle" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="reg_due" layoutX="68.0" layoutY="242.0" prefHeight="26.0" prefWidth="190.0" />
+                  <Label layoutX="69.0" layoutY="215.0" text="Reg Due date:">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Label>
+               </AnchorPane>
+            </SplitPane>
+         </Pane>
+      </center>
+   </BorderPane>
+</AnchorPane>

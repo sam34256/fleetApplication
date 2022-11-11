@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER_LEFT" prefHeight="664.0" prefWidth="799.0" styleClass="blue-panel" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.LoginPageController">
+   <children>
+      <Pane prefHeight="193.0" prefWidth="799.0">
+         <children>
+            <Label fx:id="passwordShow" layoutX="69.0" layoutY="118.0" prefHeight="30.0" prefWidth="378.0" text="" textFill="#d9bb79">
+            <font>
+               <Font size="18.0" />
+            </font>
+            <VBox.margin>
+               <Insets left="20.0" />
+            </VBox.margin>
+            </Label>
+         </children>
+      </Pane>
+      <Label text="Login" textFill="#d9bb79">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="495.0">
+         <children>
+            <TextField fx:id="userName" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="User name" styleClass="tf_box" HBox.hgrow="ALWAYS" />
+
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <PasswordField fx:id="passwordField" maxWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" promptText="Password" styleClass="tf_box" HBox.hgrow="ALWAYS" />
+
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="20.0" />
+         </VBox.margin>
+      </HBox>
+
+      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#validateLogin" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #d9bb79;" styleClass="blue-btn" text="LOGIN">
+
+         <VBox.margin>
+            <Insets left="100.0" top="20.0" />
+         </VBox.margin></Button>
+
+   </children>
+   <stylesheets>
+<!--      <URL value="@style" />-->
+      <URL value="@styles.css" />
+   </stylesheets>
+</VBox>
