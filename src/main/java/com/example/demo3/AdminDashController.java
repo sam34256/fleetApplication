@@ -268,10 +268,6 @@ public class AdminDashController implements Initializable {
     private TextField anual_check;
 
 
-    private void drivers(){
-
-
- }
 
    
   
@@ -299,6 +295,27 @@ public class AdminDashController implements Initializable {
 
 
  }
+@FXML
+    private void assign() throws SQLException {
+
+        Connectivity connect = new Connectivity();
+        Connection con=connect.getConnection();
+        String query =
+                "UPDATE fleet_management_system.vechiles_info  SET Status = 'inActive' WHERE vechile_number = ?";
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setString(1,ck_assignField.getText()) ;
+
+    }
+    @FXML
+    private void unassign() throws SQLException {
+
+        Connectivity connect = new Connectivity();
+        Connection con = connect.getConnection();
+        String query =
+                "UPDATE fleet_management_system.vechiles_info  SET Status = 'inActive' WHERE vechile_number = ?";
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setString(1, ck_assignField.getText());
+    }
 
 
     @FXML
@@ -312,7 +329,6 @@ public class AdminDashController implements Initializable {
         } else if (event.getSource() == vechiles_btn) {
             pnClientsListview.toFront();
         } else if (event.getSource() == drivers_btn) {
-            drivers();
             pnDeposits.toFront();
         } else if (event.getSource() == logout_btn) {
             root =  FXMLLoader.load(getClass().getResource("MainModified.fxml"));
@@ -418,6 +434,10 @@ public class AdminDashController implements Initializable {
 
 
 
+        drivers_table.setEditable(true);
+        col_FirstName.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_LastName.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_driverEmail.setCellFactory(TextFieldTableCell.forTableColumn());
 
         try {
             ResultSet rs2 = con.createStatement().executeQuery("select * from driver ");

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="451.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo3.driverController">
+   <TextArea layoutX="129.0" layoutY="86.0" prefHeight="38.0" prefWidth="186.0"/>
+   <Button layoutX="410.0" layoutY="140.0" mnemonicParsing="false" text="Submit"/>
+   <Label layoutX="23.0" layoutY="30.0" text="Accident Report"/>
+   <DatePicker layoutX="129.0" layoutY="142.0" prefHeight="39.0" prefWidth="186.0"/>
+   <Label layoutX="23.0" layoutY="96.0" text="Accident Address"/>
+   <Label layoutX="52.0" layoutY="144.0" text="Date"/>
+   <Label layoutX="38.0" layoutY="256.0" text="General cleaness"/>
+   <Label layoutX="38.0" layoutY="282.0" text="Insurance"/>
+   <Label layoutX="38.0" layoutY="309.0" text="Tires"/>
+   <Label layoutX="231.0" layoutY="256.0" text="Fuel cap"/>
+   <Label layoutX="231.0" layoutY="282.0" text="Fuel Cap"/>
+   <Label layoutX="231.0" layoutY="309.0" text="Mirrors"/>
+   <Label layoutX="405.0" layoutY="256.0" text="Seat Belt"/>
+   <Label layoutX="405.0" layoutY="282.0" text="Horns"/>
+   <Label layoutX="405.0" layoutY="309.0" text="Brakes"/>
+   <Button layoutX="473.0" layoutY="350.0" mnemonicParsing="false" text="Submit"/>
+   <CheckBox layoutX="134.0" layoutY="256.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="134.0" layoutY="282.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="134.0" layoutY="309.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="307.0" layoutY="256.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="307.0" layoutY="282.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="307.0" layoutY="309.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="483.0" layoutY="256.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="483.0" layoutY="282.0" mnemonicParsing="false"/>
+   <CheckBox layoutX="483.0" layoutY="309.0" mnemonicParsing="false"/>
+   <Label layoutX="39.0" layoutY="210.0" text="Daily Inspection"/>
+   <Button layoutX="462.0" layoutY="26.0" mnemonicParsing="false" onAction="#Logout" text="Log out"/>
+</AnchorPane>

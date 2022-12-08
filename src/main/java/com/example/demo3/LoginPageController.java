@@ -62,7 +62,17 @@ public class LoginPageController {
                     stage.setResizable(true);
                     stage.centerOnScreen();
                     stage.show();
-            } else {
+            } else if (resultSet.getInt(1) == 1 && resultSet.getString(2).equalsIgnoreCase("driver")) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("driverPage.fxml"));
+                Parent root2 = loader.load();
+                Stage stage2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root2);
+                stage2.setScene(scene);
+                stage2.setResizable(true);
+                stage2.centerOnScreen();
+                stage2.show();
+            }
+            else {
                 passwordShow.setText("Wrong user name and password combination!");
             }
         }

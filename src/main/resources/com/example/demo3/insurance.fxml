@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -12,6 +13,9 @@
                 <font>
                     <Font size="36.0" />
                 </font>
+            <HBox.margin>
+               <Insets left="50.0" />
+            </HBox.margin>
             </Label>
         </HBox>
         <TableView fx:id="vechile_table" layoutX="13.0" layoutY="180.0" prefHeight="494.0" prefWidth="1197.0">
@@ -34,10 +38,6 @@
             <TextField fx:id="search_db_fld" alignment="CENTER" prefHeight="26.0" prefWidth="299.0" promptText="Enter Vehicle" />
             <Button fx:id="Search_Client_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #d9bb79;" text="Search Vehicle" textFill="WHITE" />
         </HBox>
-        <Button fx:id="Update_btn" layoutX="519.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Update" textFill="WHITE" />
-        <Button fx:id="Delete_btn" layoutX="634.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Delete" textFill="WHITE" />
-        <Button fx:id="refresh" layoutX="749.0" layoutY="141.0" mnemonicParsing="false" onAction="#refresh" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Refresh" textFill="WHITE" />
-        <Button fx:id="logout" layoutX="749.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Refresh" textFill="WHITE" onAction="#logout"/>
     </Pane>
 
 </AnchorPane>

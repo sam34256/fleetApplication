@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1400.0" styleClass="parent" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.MainControllermodif">
    <Pane layoutX="174.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="914.0" styleClass="pane" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="156.0">
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="119.0" text="Employee &amp; insurance provider  portal">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="119.0" text="Employee &amp; provider  portal">
          <font>
             <Font size="20.0" />
          </font>
@@ -23,7 +23,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="547.0" layoutY="149.0" prefHeight="64.0" prefWidth="305.0" text="If you do not have an account please signup." textAlignment="CENTER" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="547.0" layoutY="149.0" prefHeight="64.0" prefWidth="305.0" text="If you have password issues please contact help desk." textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="16.0" />
          </font>
