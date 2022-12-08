@@ -5,54 +5,52 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class DriverView {
 
-    private final SimpleStringProperty driverId;
-    private final SimpleStringProperty firstName;
-    private final SimpleStringProperty laseName;
+
+    private final SimpleStringProperty driver_id;
+    private final SimpleStringProperty first_name;
+    private final SimpleStringProperty last_name;
     private final SimpleStringProperty email;
     private final SimpleStringProperty gender;
-    private final SimpleStringProperty phoneNumber;
+    private final SimpleStringProperty phone_number;
+
+    private final SimpleStringProperty license_number;
 
 
-
-    private final SimpleStringProperty licenseNumber;
-
-    public DriverView(String driverId , String firstName , String  laseName, String email, String  gender, String phoneNumber,
-                      String licenseNumber){
-        this.driverId = new SimpleStringProperty(driverId);
-        this.firstName =new SimpleStringProperty(firstName);
-        this.laseName =new SimpleStringProperty(laseName);
+    public DriverView(String driver_id, String first_name, String  laseName, String email, String  gender, String phoneNumber,
+                      String license_number){
+        this.driver_id = new SimpleStringProperty(driver_id);
+        this.first_name =new SimpleStringProperty(first_name);
+        this.last_name =new SimpleStringProperty(laseName);
         this.email =new SimpleStringProperty(email);
         this.gender =new SimpleStringProperty(gender);
-        this.phoneNumber =new SimpleStringProperty(phoneNumber);
-        this.licenseNumber =new SimpleStringProperty(licenseNumber);
+        this.phone_number =new SimpleStringProperty(phoneNumber);
+        this.license_number =new SimpleStringProperty(license_number);
 
     }
 
 
-    public String getDriverId() {
-        return driverId.get();
+    public String getDriver_id() {
+        return driver_id.get();
     }
 
-    public void setDriverId(String Transaction_Number) {
-        this.driverId.set(Transaction_Number);
+    public void setDriver_id(String Transaction_Number) {
+        this.driver_id.set(Transaction_Number);
     }
 
 
-    public String getFirstName() {
-        return firstName.get();
+    public String getFirst_name() {
+        return first_name.get();
     }
 
-    public void setFirstName(String account_Number) {
-        this.firstName.set(account_Number);
+    public void setFirst_name(String account_Number) {
+        this.first_name.set(account_Number);
     }
 
-    public String getLaseName()  {
-        return laseName.get();
+    public String getLast_name()  {
+        return last_name.get();
     }
 
-    public void setFirst_name(String Date_created) {
-        this.laseName.set(Date_created);
-    }
+
 
     public String getEmail() {
         return email.get();
@@ -71,19 +69,19 @@ public class DriverView {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber.get();
+        return phone_number.get();
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber.set(phoneNumber);
+        this.phone_number.set(phoneNumber);
     }
 
-    public String getLicenseNumber() {
-        return licenseNumber.get();
+    public String getLicense_number() {
+        return license_number.get();
     }
 
-    public void setLicenseNumber(String licenseNumber) {
-        this.licenseNumber.set(licenseNumber);
+    public void setLicense_number(String license_number) {
+        this.license_number.set(license_number);
     }
 
 
@@ -91,13 +89,13 @@ public class DriverView {
     @Override
     public String toString() {
         return "DriverView{" +
-                "driverId=" + driverId +
-                ", firstName=" + firstName +
-                ", laseName=" + laseName +
+                "driverId=" + driver_id +
+                ", firstName=" + first_name +
+                ", laseName=" + last_name +
                 ", email=" + email +
                 ", gender=" + gender +
-                ", phoneNumber=" + phoneNumber +
-                ", licenseNumber=" + licenseNumber +
+                ", phoneNumber=" + phone_number +
+                ", licenseNumber=" + license_number +
                 '}';
     }
 

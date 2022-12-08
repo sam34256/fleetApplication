@@ -2,8 +2,8 @@ package com.example.demo3;
 
 
 
-import com.example.demo3.Admin.CheckingView;
-import com.example.demo3.Admin.DriverAvailabilityView;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -31,12 +32,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminDashController implements Initializable {
-    @FXML
-    private Label maritalSetLabel;
-    @FXML
-    private ToggleGroup maritalStatus;
-    @FXML
-    private ToggleGroup genderStatus;
+
     private String genderSet = "";
 
     private String  stutusSet="";
@@ -51,8 +47,6 @@ public class AdminDashController implements Initializable {
     @FXML
     private TextField licenseNumber;
 
-    @FXML
-    private DatePicker DOB_fld;
 
     @FXML
     private RadioButton Male_radio_btn;
@@ -161,9 +155,6 @@ public class AdminDashController implements Initializable {
     private TextField search_db_fld;
 
 
-    // sets option choices
-    @FXML
-    private String maritalSet = "";
   
 
 
@@ -184,6 +175,7 @@ public class AdminDashController implements Initializable {
 // table data vehicle view
     @FXML
     private TableView<VechileView> vechile_table;
+
     @FXML
     private TableColumn<VechileView, String> col_accnum;
     @FXML
@@ -211,9 +203,11 @@ public class AdminDashController implements Initializable {
     @FXML
     private Parent root;
 
-    ObservableList<DriverAvailabilityView>ViewSavings = FXCollections.observableArrayList();
-    ObservableList<CheckingView>ViewChecking = FXCollections.observableArrayList();
+
     ObservableList<DriverView>viewDriver = FXCollections.observableArrayList();
+    ObservableList<DriverAvailabilityView>viewAavailableDriver = FXCollections.observableArrayList();
+
+    ObservableList<DriverAvailabilityView>viewunAavailableDriver = FXCollections.observableArrayList();
     ObservableList<VechileView> VechicleList = FXCollections.observableArrayList();
     ObservableList<String> stateList = FXCollections.observableArrayList(
             "Alabama",
@@ -275,37 +269,7 @@ public class AdminDashController implements Initializable {
 
 
     private void drivers(){
-     Connectivity connect = new Connectivity();
-     Connection con;
-     con = connect.getConnection();
-     ResultSet rs = null;
-     try {
-         rs = con.createStatement().executeQuery("select * from driver ");
-         while (rs.next()) {
-             viewDriver.add(new DriverView(
-                     rs.getString("driver_id"),
-                     rs.getString("first_name"),
-                     rs.getString("last_name"),
-                     rs.getString("email"),
-                     rs.getString("gender"),
-                     rs.getString("phone_number"),
-                     rs.getString("license_number")));
 
-
-         }
-     } catch (SQLException e) {
-         throw new RuntimeException(e);
-     }
-
-
-     col_Driver_id.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
-     col_FirstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
-     col_LastName.setCellValueFactory(new PropertyValueFactory<>("last_name"));
-     col_driverEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-     col_Gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-     col_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
-     col_LicenseNumber.setCellValueFactory(new PropertyValueFactory<>("license_number"));
-     drivers_table.setItems(viewDriver);
 
  }
 
@@ -351,7 +315,7 @@ public class AdminDashController implements Initializable {
             drivers();
             pnDeposits.toFront();
         } else if (event.getSource() == logout_btn) {
-            root =  FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+            root =  FXMLLoader.load(getClass().getResource("MainModified.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -370,6 +334,15 @@ public class AdminDashController implements Initializable {
       Connectivity connect = new Connectivity();
         Connection con;
         con = connect.getConnection();
+
+        vechile_table.setEditable(true);
+        col_mname.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_dob.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_address.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_zip.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_country.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
 
         try {
             ResultSet rs = con.createStatement().executeQuery("select * from vechiles_info ");
@@ -443,33 +416,80 @@ public class AdminDashController implements Initializable {
             throw new RuntimeException(e);
         }
 
-//
-//        ResultSet rs = null;
-//        try {
-//            rs = con.createStatement().executeQuery("select * from driver ");
-//            while (rs.next()) {
-//                viewDriver.add(new DriverView(rs.getString("driver_id"), rs.getString("first_name"),
-//                        rs.getString("last_name"),
-//                        rs.getString("email"),
-//                        rs.getString("gender"),
-//                        rs.getString("phone_number"),
-//                        rs.getString("license_number")));
-//                System.out.println( rs.getString("last_name"));
-//
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        col_Driver_id.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
-//        col_FirstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
-//        col_LastName.setCellValueFactory(new PropertyValueFactory<>("last_name"));
-//        col_driverEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-//        col_Gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-//        col_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
-//        col_LicenseNumber.setCellValueFactory(new PropertyValueFactory<>("license_number"));
-//
-//        drivers_table.setItems(viewDriver);
-//
+
+
+
+        try {
+            ResultSet rs2 = con.createStatement().executeQuery("select * from driver ");
+            while (rs2.next()) {
+                viewDriver.add(new DriverView(
+                        rs2.getString("driver_id"),
+                        rs2.getString("first_name"),
+                        rs2.getString("last_name"),
+                        rs2.getString("email"),
+                        rs2.getString("gender"),
+                        rs2.getString("phone_number"),
+                        rs2.getString("license_number")));
+
+            }
+
+        col_Driver_id.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+        col_FirstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        col_LastName.setCellValueFactory(new PropertyValueFactory<>("last_name"));
+        col_driverEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_Gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        col_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
+        col_LicenseNumber.setCellValueFactory(new PropertyValueFactory<>("license_number"));
+
+        drivers_table.setItems(viewDriver);
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try{
+            ResultSet rs1 = con.createStatement().executeQuery("select driver_id,first_name,password from driver where status= 'active' ");
+            while (rs1.next()) {
+                viewAavailableDriver.add( new DriverAvailabilityView(
+                        rs1.getString("driver_id"),
+                        rs1.getString("first_name"),
+                        rs1.getString("password")
+                ));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        driverId.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+        col_avFirstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        col_vechileId.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+
+        Available_drivers.setItems(viewAavailableDriver);
+
+
+        try{
+            ResultSet rs2 = con.createStatement().executeQuery("select driver_id,first_name,password from driver where status= 'inactive' ");
+            while (rs2.next()) {
+                viewunAavailableDriver.add( new DriverAvailabilityView(
+                        rs2.getString("driver_id"),
+                        rs2.getString("first_name"),
+                        rs2.getString("password")
+                ));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        col_un_driverId.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+        col_ud_firstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        col_ud_vehicleId.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+
+        unavailableDrivers.setItems(viewunAavailableDriver);
+
+
        }
 
     public String genderCheck() {
@@ -510,7 +530,6 @@ public class AdminDashController implements Initializable {
         statement.setString(7,type_fld.getText() );
         statement.setString(8, "commercial");
 
-
         statement.executeUpdate();
     }
 
@@ -534,7 +553,7 @@ public class AdminDashController implements Initializable {
                         rs.getString("mile_age"),
                         rs.getString("Type"),
                         rs.getString("Status")));
-                System.out.println(rs.getString("vechile_number"));
+                           System.out.println(rs.getString("vechile_number"));
 
 
             }
@@ -550,6 +569,28 @@ public class AdminDashController implements Initializable {
 
             vechile_table.setItems(VechicleList);
             state_ComboBox.setItems(stateList);
+
+
+    }
+
+    public void delete(ActionEvent event) throws SQLException {
+        Connectivity connect = new Connectivity();
+        Connection con;
+        con = connect.getConnection();
+        vechile_table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<VechileView>() {
+            @Override
+            public void changed(ObservableValue<? extends VechileView> observableValue, VechileView vechileView, VechileView t1) {
+                if(vechile_table.getSelectionModel().getSelectedItem()!=null) {
+                    TableView.TableViewSelectionModel selectionModel  = vechile_table.getSelectionModel();
+                    ObservableList selctedCells = selectionModel.getSelectedCells();
+                    TablePosition tablePosition = (TablePosition) selctedCells.get(0);
+                    Object val = tablePosition.getTableColumn().getCellData(t1);
+                    System.out.println(val);
+                }
+            }
+        });
+
+
 
 
     }

@@ -5,11 +5,12 @@
 /*    -fx-background-size: cover;*/
 
 /*}*/
-/*.parent{*/
-/*    !*-fx-background-color: linear-gradient(bottom , #181c2c, white);*!*/
-/*    -fx-background-image: url('../../../optionalBank.jpg');*/
-/*    -fx-background-repeat: no-repeat;*/
-/*    -fx-background-size: cover;*/
+.parent {
+    -fx-background-color: linear-gradient(bottom , #181c2c, white);
+    -fx-background-image: url('../../../Fleet-Management_banner.jpg');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
 
 /*}*/
 .label-font{

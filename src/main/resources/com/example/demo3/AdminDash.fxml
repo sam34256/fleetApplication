@@ -82,7 +82,7 @@
                   <Button fx:id="Search_Client_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #d9bb79;" text="Search Vehicle" textFill="WHITE" />
                </HBox>
                <Button fx:id="Update_btn" layoutX="519.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Update" textFill="WHITE" />
-               <Button fx:id="Delete_btn" layoutX="634.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Delete" textFill="WHITE" />
+               <Button fx:id="Delete_btn" layoutX="634.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" onAction="#delete" text="Delete" textFill="WHITE" />
                <Button fx:id="refresh" layoutX="749.0" layoutY="141.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #d9bb79;" text="Refresh" textFill="WHITE" onAction="#refresh"/>
             </Pane>
             <AnchorPane fx:id="pnDeposits" layoutX="59.0" layoutY="9.0" prefHeight="613.0" prefWidth="1052.0">
@@ -103,14 +103,14 @@
                      </Label>
                   </HBox>
                   <HBox prefHeight="202.0" prefWidth="1124.0">
-                     <TableView fx:id="Drivers_table" prefHeight="200.0" prefWidth="1124.0">
+                     <TableView fx:id="drivers_table" prefHeight="200.0" prefWidth="1124.0">
                         <columns>
-                           <TableColumn fx:id="col_Driver_id" prefWidth="122.39997863769531" text="Driver Id" />
+                           <TableColumn fx:id="col_Driver_id" prefWidth="122.39997863769531"  text="Driver Id" />
                            <TableColumn fx:id="col_FirstName" prefWidth="123.20004272460938" text="First Name" />
                            <TableColumn fx:id="col_LastName" minWidth="0.0" prefWidth="88.80001831054688" text="Last Name" />
                            <TableColumn fx:id="col_driverEmail" minWidth="0.0" prefWidth="96.79998779296875" text="email" />
                            <TableColumn fx:id="col_Gender" prefWidth="171.20001220703125" text="Gender" />
-                           <TableColumn fx:id="col_phoneNumber" prefWidth="107.20001220703125" text="phoneNumber " />
+                           <TableColumn fx:id="col_phoneNumber" prefWidth="1" text="" />
                            <TableColumn fx:id="col_LicenseNumber" minWidth="0.0" prefWidth="118.4000244140625" text="License number " />
                         </columns>
                         <columnResizePolicy>
@@ -124,7 +124,7 @@
                         <TableView fx:id="Available_drivers" layoutX="28.0" layoutY="43.0" prefHeight="174.0" prefWidth="499.0">
                            <columns>
                               <TableColumn fx:id="driverId" prefWidth="178.3999900817871" text="Driver Id" />
-                              <TableColumn fx:id="col_avFirstName" prefWidth="126.40000915527344" text="First Name" />
+                              <TableColumn fx:id="col_avFirstName" prefWidth="1" text="" />
                               <TableColumn fx:id="col_vechileId" prefWidth="192.80003662109374" text="Vehicle id" />
                            </columns>
                         </TableView>
@@ -137,7 +137,7 @@
                         <TableView fx:id="unavailableDrivers" layoutX="29.0" layoutY="40.0" prefHeight="174.0" prefWidth="499.0">
                            <columns>
                               <TableColumn fx:id="col_un_driverId" prefWidth="179.99999618530273" text="Driver Id" />
-                              <TableColumn fx:id="col_ud_firstName" prefWidth="138.40003967285156" text="First Name" />
+                              <TableColumn fx:id="col_ud_firstName" prefWidth="1" text="" />
                               <TableColumn fx:id="col_ud_vehicleId" prefWidth="179.99993896484375" text="Vehicle id " />
                            </columns>
                         </TableView>
