@@ -50,7 +50,7 @@ public class LoginPageController {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
-                stage.setResizable(false);
+                stage.setResizable(true);
                 stage.centerOnScreen();
                 stage.show();
             } else if (resultSet.getInt(1) == 1 && resultSet.getString(2).equalsIgnoreCase("insurncep")) {

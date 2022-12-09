@@ -616,5 +616,86 @@ public class AdminDashController implements Initializable {
     }
 
 
+    public void driverrefresh(ActionEvent event) {
 
+        Connectivity connect = new Connectivity();
+        Connection con;
+        con = connect.getConnection();
+
+
+        drivers_table.setEditable(true);
+        col_FirstName.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_LastName.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_driverEmail.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        try {
+            ResultSet rs2 = con.createStatement().executeQuery("select * from driver ");
+            while (rs2.next()) {
+                viewDriver.add(new DriverView(
+                        rs2.getString("driver_id"),
+                        rs2.getString("first_name"),
+                        rs2.getString("last_name"),
+                        rs2.getString("email"),
+                        rs2.getString("gender"),
+                        rs2.getString("phone_number"),
+                        rs2.getString("license_number")));
+
+            }
+
+            col_Driver_id.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+            col_FirstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+            col_LastName.setCellValueFactory(new PropertyValueFactory<>("last_name"));
+            col_driverEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+            col_Gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+            col_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
+            col_LicenseNumber.setCellValueFactory(new PropertyValueFactory<>("license_number"));
+
+            drivers_table.setItems(viewDriver);
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try{
+            ResultSet rs1 = con.createStatement().executeQuery("select driver_id,first_name,password from driver where status= 'active' ");
+            while (rs1.next()) {
+                viewAavailableDriver.add( new DriverAvailabilityView(
+                        rs1.getString("driver_id"),
+                        rs1.getString("first_name"),
+                        rs1.getString("password")
+                ));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        driverId.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+        col_avFirstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        col_vechileId.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+
+        Available_drivers.setItems(viewAavailableDriver);
+
+
+        try{
+            ResultSet rs2 = con.createStatement().executeQuery("select driver_id,first_name,password from driver where status= 'inactive' ");
+            while (rs2.next()) {
+                viewunAavailableDriver.add( new DriverAvailabilityView(
+                        rs2.getString("driver_id"),
+                        rs2.getString("first_name"),
+                        rs2.getString("password")
+                ));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        col_un_driverId.setCellValueFactory(new PropertyValueFactory<>("driver_id"));
+        col_ud_firstName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        col_ud_vehicleId.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+
+        unavailableDrivers.setItems(viewunAavailableDriver);
+    }
 }

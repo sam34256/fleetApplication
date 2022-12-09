@@ -56,6 +56,17 @@ public class Insurance implements Initializable {
     @FXML
     private Parent root;
 
+    @FXML
+    private void Logout(ActionEvent event) throws IOException {
+        root =  FXMLLoader.load(getClass().getResource("MainModified.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Connectivity connect = new Connectivity();
         Connection con;

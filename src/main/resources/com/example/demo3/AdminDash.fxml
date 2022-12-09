@@ -91,6 +91,7 @@
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Driver Id: " />
                      <TextField fx:id="raddress_fld" styleClass="search_box" />
                      <Button fx:id="search_btn" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #d9bb79; -fx-border-color: white;" text="Search" />
+                     <Button fx:id="refresh2" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" onAction="#driverrefresh" style="-fx-background-color: #d9bb79;   -fx-border-color: white;" text="refresh" />
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1124.0" style="-fx-background-color: white;">
                      <Label alignment="CENTER" contentDisplay="CENTER" text="Drivers">
